@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Website</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <span>FLASHWAY Voyages</span>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#">Menu</a></li>
+                    <li><a href="#">Français</a></li>
+                    <li><a href="#">Espace Entreprise</a></li>
+                </ul>
+                <ul class="nav-icons">
+                    <!-- Removed the missing user-icon and cart-icon images -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="booking-section">
+            <div class="tabs">
+                <button class="active-tab">J'achète mon billet</button>
+                <button>Je consulte les horaires</button>
+                <button>J'utilise mon tarif réduit</button>
+                <button>Je gère ma réservation</button>
+            </div>
+            <div class="booking-form">
+                <form id="bookingForm">
+                    <div class="form-group">
+                        <label for="garedepart">Ma gare de départ</label>
+                        <input type="text" id="garedepart" name="garedepart" class="depart" placeholder="Ma gare de départ" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="garearrivee">Ma gare d'arrivée</label>
+                        <input type="text" id="garearrivee" name="garearrivee" class="arrivee" placeholder="Ma gare d'arrivée" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="datedep">Ma date de départ</label>
+                        <input type="date" id="datedep" name="datedep" value="2025-03-24" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dateretoure">Ma date de retour</label>
+                        <input type="date" id="dateretoure" name="dateretoure" placeholder="Mon retour">
+                    </div>
+                    <div class="form-group">
+                        <label for="typevoy">Voyageurs</label>
+                        <input type="text" id="typevoy" name="typevoy" placeholder="1 Adulte" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Mon confort</label>
+                        <div class="comfort-options">
+                            <button type="button" class="active">2ème classe</button>
+                            <button type="button">1ère classe</button>
+                            <button type="button">Lit single</button>
+                        </div>
+                    </div>
+                    <div class="form-group search-button">
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="styles/data handling.js"></script>
+</body>
+</html>
