@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Trains</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <span>FLASHWAY Voyages</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="trains-section">
+            <h1>Available Trains</h1>
+            <div id="trainsList">
+                <!-- Trains will be dynamically loaded here -->
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const tripData = JSON.parse(localStorage.getItem('tripData'));
+            const trainsList = document.getElementById('trainsList');
+
+            if (tripData) {
+                const { garedepart, garearrivee, datedep } = tripData;
+
+                // Simulate fetching available trains
+                const trains = [
+                    { id: 1, name: "Train A", time: "10:00 AM", seatsAvailable: 50 },
+                    { id: 2, name: "Train B", time: "12:00 PM", seatsAvailable: 30 },
+                    { id: 3, name: "Train C", time: "02:00 PM", seatsAvailable: 0 } // Fully booked
+                ];
+
+                const availableTrains = trains.filter(train => train.seatsAvailable > 0);
+
+                if (availableTrains.length > 0) {
+                    availableTrains.forEach(train => {
+                        const trainElement = document.createElement('div');
+                        trainElement.className = 'train';
+                        trainElement.innerHTML = `
+                            <h2>${train.name}</h2>
+                            <p>Time: ${train.time}</p>
+                            <p>Seats Available: ${train.seatsAvailable}</p>
+                        `;
+                        trainsList.appendChild(trainElement);
+                    });
+                } else {
+                    trainsList.innerHTML = '<p>No trains available for the selected time and route.</p>';
+                }
+            } else {
+                trainsList.innerHTML = '<p>No trip data found. Please go back and book a trip.</p>';
+            }
+        });
+    </script>
+</body>
+</html>
